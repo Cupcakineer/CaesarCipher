@@ -60,7 +60,7 @@ public class ConvertStringToNumbers {
 	public String key(){
 		for(int x = 0; x < singleChar.letterValue.length; x++){
 			if(singleChar.letterValue[x] != 0)
-				key.append(singleChar.letters[x] + " = " + singleChar.letterValue[x] + "\n");
+				key.append(singleChar.letters[x] + " = " + singleChar.letterValue[x] + " ");
 		}
 		return key.toString();
 	}

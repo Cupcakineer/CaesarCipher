@@ -166,7 +166,7 @@ public class morseEncryptor{
         return output;
     }
     
-    public static String encrypt(String input, int option){
+    public String encrypt(String input, int option){
         input = stringToMorse(input);
         if(option == 1){
             return encrypt1(input);
