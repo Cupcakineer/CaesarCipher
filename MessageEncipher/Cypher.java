@@ -160,7 +160,6 @@ public class Cypher {
 		return mixed;
 	}
 	
-	
 	public static String reverseCompleteRand(String key, String str){
 		
 		int input;
@@ -244,6 +243,9 @@ public class Cypher {
 				
 				}
 		}
+		
+		System.out.println("Key: " + "decrease all letters by " + num);
+		
 		return mixed;
 	}
 	
@@ -282,6 +284,9 @@ public class Cypher {
 				
 				}
 		}
+		
+		System.out.println("Key: " + "increase all letters by " + num);
+		
 		return mixed;
 	}
 	
