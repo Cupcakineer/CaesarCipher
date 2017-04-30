@@ -47,8 +47,6 @@ public class Cypher {
 		for(int i=0; i<26; i++)
 			str += charTable[i];
 		
-		str += "The first letter in the key corresponds to a, the second letter corresponds to b, and so on.";
-		
 		return str;
 		
 	}
@@ -57,6 +55,7 @@ public class Cypher {
 		
 		char [] table = randomKey();
 		String mixed = "";
+		String returnStatement;
 		
 		for(int i=0; i<str.length(); i++){
 			
@@ -76,8 +75,8 @@ public class Cypher {
 		}
 		
 		String key = RandomKey();
-		
-		return key + "\n" + mixed;
+		returnStatement = key + "\n" + "The first letter in the key corresponds to a, the second letter corresponds to b, and so on.";
+		return  returnStatement + "\n" + mixed;
 	}
 	
 	public static String reverseRandom(String str, String key){
@@ -298,7 +297,7 @@ public class Cypher {
 		// test cases 
 		
 		Cypher cye = new Cypher();
-		//System.out.println(cye.convertWithRandomTable("ABC"));
+		System.out.println(cye.convertWithRandomTable("ABC"));
 
 		
 		//System.out.println(cye.setIncrease(1,"XyZA!A A"));
@@ -307,7 +306,7 @@ public class Cypher {
 		
 		//System.out.println(reverseRandom("OLY!  AEae", "olyhqzutirkgmfnsjxvwcpbdea"));
 		
-		System.out.println(completeRand("av!rbbbYs! REW"));
+		//System.out.println(completeRand("av!rbbbYs! REW"));
 		
 		//System.out.println(reverseCompleteRand("2215!!150802211723!!!!161709", "wk!gjdwPp! HVF"));
 		
