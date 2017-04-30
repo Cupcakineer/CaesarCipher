@@ -4,7 +4,7 @@ public class Cypher {
 	static char [] charTable = new char [26];
 	static char [] charTableReg = new char [26];
 	static Random rand = new Random();
-	static String mixed = "";
+	static String completeRandKey = "";
 	
 	public Cypher(){
 		
@@ -34,7 +34,6 @@ public class Cypher {
 			
 		}
 		
-		
 		return charTable;
 	}
 	
@@ -55,6 +54,7 @@ public class Cypher {
 	private static String convertWithRandomTable(String str){
 		
 		char [] table = randomKey();
+		String mixed = "";
 		
 		for(int i=0; i<str.length(); i++){
 			
@@ -99,12 +99,116 @@ public class Cypher {
 				original += str.charAt(i);
 		}
 		
+		
 		return original;
 	}
 	
-	
-	private String setIncrease(int num, String str){
+	private static String completeRand(String str){
 		
+		int adder;
+		String mixed = "";
+		String key = "";
+		int input;
+		
+		for(int i=0; i<str.length(); i++){
+			
+			adder = rand.nextInt(26)+1;
+			if('a' <= (str.charAt(i)) && (str.charAt(i)) <= 'z'){
+				
+				input = (int)(str.charAt(i)+adder);
+				if (input > 122)
+					mixed += (char)(input%123 + 97);
+				else
+					mixed += (char)(input);
+				
+				if(adder < 10)
+					key += "0" + Integer.toString(adder);
+				else
+					key += Integer.toString(adder);
+						
+			}
+			else if('A' <= (str.charAt(i)) && (str.charAt(i)) <= 'Z'){
+				input = (int)(str.charAt(i)+adder);
+				if (input > 90)
+					mixed += (char)(input%91 + 65);
+				else
+					mixed += (char)(input);
+				
+				if(adder < 10)
+					key += "0" + Integer.toString(adder);
+				else
+					key += Integer.toString(adder);
+			}
+			else{
+				mixed += str.charAt(i);
+				key += "!!";
+				
+			}
+			
+			
+		}
+		
+		completeRandKey = key;
+		
+		return mixed;
+	}
+	
+	private static String printCompleteRandKey(){
+		
+		return completeRandKey;
+	}
+	
+	private static String reverseCompleteRand(String key, String str){
+		
+		int input;
+		String original = "";
+		int keyIndex = 0;
+		int adder;
+		String twoparts;
+		
+		if(key.length()/2 != str.length())
+			return "Error. Key is not vaid";
+		else{
+			
+			for(int i=0; i<str.length(); i++){
+				
+				twoparts = key.substring(keyIndex, keyIndex+2);
+				if(twoparts.equals("!!"))
+					adder = 0;
+				else
+					adder = 26-Integer.parseInt(twoparts);
+				
+				keyIndex += 2;
+				
+				if('a' <= (str.charAt(i)) && (str.charAt(i)) <= 'z'){
+					
+					input = (int)(str.charAt(i)+adder);
+					if (input > 122)
+						original += (char)(input%123 + 97);
+					else
+						original += (char)(input);
+							
+				}
+				else if('A' <= (str.charAt(i)) && (str.charAt(i)) <= 'Z'){
+					input = (int)(str.charAt(i)+adder);
+					if (input > 90)
+						original += (char)(input%91 + 65);
+					else
+						original += (char)(input);
+				}
+				else
+					original += str.charAt(i);
+				
+			}
+			
+		}
+			return original;
+		
+	}
+	
+	private static String setIncrease(int num, String str){
+		
+		String mixed = "";
 		int input;
 		
 		if(num < 1)
@@ -140,9 +244,10 @@ public class Cypher {
 		return mixed;
 	}
 	
-	private String setDecrease(int num, String str){
+	private static String setDecrease(int num, String str){
 		
 		int input;
+		String mixed = "";
 		
 		if(num < 1)
 			return "Error. Must be a positive number.";
@@ -177,6 +282,8 @@ public class Cypher {
 		return mixed;
 	}
 	
+
+	
 	public static void main(String[] args) {
 		
 		// test cases 
@@ -191,6 +298,10 @@ public class Cypher {
 		
 		//System.out.println(reverseRandom("OLY!  AEae", "olyhqzutirkgmfnsjxvwcpbdea"));
 		
+		System.out.println(completeRand("av!rbbbYs! REW"));
+		System.out.println(printCompleteRandKey());
+		
+		System.out.println(reverseCompleteRand("2215!!150802211723!!!!161709", "wk!gjdwPp! HVF"));
 		
 		
 	}
