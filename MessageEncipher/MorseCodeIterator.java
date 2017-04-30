@@ -22,8 +22,5 @@ public class MorseCodeIterator {
 		return morseEncryptor.encrypt(input, 3);
 	}
 	
-	public static void main(String args[]){
-		MorseCodeIterator n = new MorseCodeIterator("Hello");
-		System.out.println(n.encrypt1());
-	}
+	//key generated?
 }
