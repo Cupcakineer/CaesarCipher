@@ -41,14 +41,13 @@ public class Cypher {
 		
 		String str = "";
 		
-		for(int i=0; i<26; i++){
-			str += charTableReg[i] + ": " + charTable[i] + "\n";
-		}
+		str += "Condensed key version: ";
 		
-		str += "\n" + "Condensed key version: ";
 		
 		for(int i=0; i<26; i++)
 			str += charTable[i];
+		
+		str += "The first letter in the key corresponds to a, the second letter corresponds to b, and so on.";
 		
 		return str;
 		
