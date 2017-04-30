@@ -4,7 +4,6 @@ public class Cypher {
 	static char [] charTable = new char [26];
 	static char [] charTableReg = new char [26];
 	static Random rand = new Random();
-	static String completeRandKey = "";
 	
 	public Cypher(){
 		
@@ -38,17 +37,20 @@ public class Cypher {
 		return charTable;
 	}
 	
-	private static void printRandomKey(){
+	private static String RandomKey(){
+		
+		String str = "";
 		
 		for(int i=0; i<26; i++){
-			System.out.println(charTableReg[i] + ":" + charTable[i]);
+			str += charTableReg[i] + ": " + charTable[i] + "\n";
 		}
 		
-		System.out.println();
-		System.out.print("Key to enter: ");
+		str += "\n" + "Condensed key version: ";
 		
 		for(int i=0; i<26; i++)
-			System.out.print(charTable[i]);
+			str += charTable[i];
+		
+		return str;
 		
 	}
 	
@@ -74,12 +76,9 @@ public class Cypher {
 			
 		}
 		
-		printRandomKey();
+		String key = RandomKey();
 		
-		System.out.println();
-		
-		
-		return mixed;
+		return key + "\n" + mixed;
 	}
 	
 	public static String reverseRandom(String str, String key){
@@ -115,6 +114,7 @@ public class Cypher {
 		String mixed = "";
 		String key = "";
 		int input;
+		String completeRandKey = "";
 		
 		for(int i=0; i<str.length(); i++){
 			
@@ -154,10 +154,12 @@ public class Cypher {
 			
 		}
 		
-		completeRandKey = key;
-		System.out.println("Key: " + completeRandKey);
+		completeRandKey = "key: " + key + "\n";
 		
-		return mixed;
+		completeRandKey += "Use every 2 characters in the key and increase the corresponding letters by the amount. " + "\n"
+				+ "Exclamation marks mean the character is a non-letter and should not be altered." + "\n";
+		
+		return completeRandKey + mixed;
 	}
 	
 	public static String reverseCompleteRand(String key, String str){
@@ -212,6 +214,7 @@ public class Cypher {
 		
 		String mixed = "";
 		int input;
+		String key = "";
 		
 		if(num < 1)
 			return "Error. Must be a positive number.";
@@ -243,16 +246,16 @@ public class Cypher {
 				
 				}
 		}
+		key += ("Key: " + "decrease all letters by " + num + "\n");
 		
-		System.out.println("Key: " + "decrease all letters by " + num);
-		
-		return mixed;
+		return key + mixed;
 	}
 	
 	public static String setDecrease(int num, String str){
 		
 		int input;
 		String mixed = "";
+		String key = "";
 		
 		if(num < 1)
 			return "Error. Must be a positive number.";
@@ -285,28 +288,27 @@ public class Cypher {
 				}
 		}
 		
-		System.out.println("Key: " + "increase all letters by " + num);
+		key += ("Key: " + "increase all letters by ") + num + "\n";
 		
-		return mixed;
+		return key + mixed;
 	}
 	
-
 	
 	public static void main(String[] args) {
 		
 		// test cases 
 		
 		Cypher cye = new Cypher();
-		System.out.println(cye.convertWithRandomTable("ABC"));
-		//printRandomKey();
+		//System.out.println(cye.convertWithRandomTable("ABC"));
+
 		
-		//System.out.println(cye.setIncrease(-1,"XyZA!A A"));
+		//System.out.println(cye.setIncrease(1,"XyZA!A A"));
 		
 		//System.out.println(cye.setDecrease(7,"abcdefg"));
 		
 		//System.out.println(reverseRandom("OLY!  AEae", "olyhqzutirkgmfnsjxvwcpbdea"));
 		
-		//System.out.println(completeRand("av!rbbbYs! REW"));
+		System.out.println(completeRand("av!rbbbYs! REW"));
 		
 		//System.out.println(reverseCompleteRand("2215!!150802211723!!!!161709", "wk!gjdwPp! HVF"));
 		
