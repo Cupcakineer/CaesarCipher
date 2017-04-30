@@ -34,24 +34,25 @@ public class Cypher {
 			
 		}
 		
+		
 		return charTable;
 	}
 	
-	private  static void printRandomKey(){
+	private static void printRandomKey(){
 		
 		for(int i=0; i<26; i++){
 			System.out.println(charTableReg[i] + ":" + charTable[i]);
 		}
 		
 		System.out.println();
-		System.out.println("Key to enter:");
+		System.out.print("Key to enter: ");
 		
 		for(int i=0; i<26; i++)
 			System.out.print(charTable[i]);
 		
 	}
 	
-	private static String convertWithRandomTable(String str){
+	public static String convertWithRandomTable(String str){
 		
 		char [] table = randomKey();
 		String mixed = "";
@@ -73,10 +74,15 @@ public class Cypher {
 			
 		}
 		
+		printRandomKey();
+		
+		System.out.println();
+		
+		
 		return mixed;
 	}
 	
-	private static String reverseRandom(String str, String key){
+	public static String reverseRandom(String str, String key){
 		
 		if(key.length() != 26)
 			return "Error. Key is invalid";
@@ -103,7 +109,7 @@ public class Cypher {
 		return original;
 	}
 	
-	private static String completeRand(String str){
+	public static String completeRand(String str){
 		
 		int adder;
 		String mixed = "";
@@ -149,16 +155,13 @@ public class Cypher {
 		}
 		
 		completeRandKey = key;
+		System.out.println("Key: " + completeRandKey);
 		
 		return mixed;
 	}
 	
-	private static String printCompleteRandKey(){
-		
-		return completeRandKey;
-	}
 	
-	private static String reverseCompleteRand(String key, String str){
+	public static String reverseCompleteRand(String key, String str){
 		
 		int input;
 		String original = "";
@@ -206,7 +209,7 @@ public class Cypher {
 		
 	}
 	
-	private static String setIncrease(int num, String str){
+	public static String setIncrease(int num, String str){
 		
 		String mixed = "";
 		int input;
@@ -214,7 +217,7 @@ public class Cypher {
 		if(num < 1)
 			return "Error. Must be a positive number.";
 		else{
-			
+
 			for(int i=0; i<str.length(); i++){
 			
 				if('a' <= (str.charAt(i)) && (str.charAt(i)) <= 'z'){
@@ -244,7 +247,7 @@ public class Cypher {
 		return mixed;
 	}
 	
-	private static String setDecrease(int num, String str){
+	public static String setDecrease(int num, String str){
 		
 		int input;
 		String mixed = "";
@@ -289,7 +292,7 @@ public class Cypher {
 		// test cases 
 		
 		Cypher cye = new Cypher();
-		//System.out.println(cye.convertWithRandomTable("ABC"));
+		System.out.println(cye.convertWithRandomTable("ABC"));
 		//printRandomKey();
 		
 		//System.out.println(cye.setIncrease(-1,"XyZA!A A"));
@@ -298,10 +301,9 @@ public class Cypher {
 		
 		//System.out.println(reverseRandom("OLY!  AEae", "olyhqzutirkgmfnsjxvwcpbdea"));
 		
-		System.out.println(completeRand("av!rbbbYs! REW"));
-		System.out.println(printCompleteRandKey());
+		//System.out.println(completeRand("av!rbbbYs! REW"));
 		
-		System.out.println(reverseCompleteRand("2215!!150802211723!!!!161709", "wk!gjdwPp! HVF"));
+		//System.out.println(reverseCompleteRand("2215!!150802211723!!!!161709", "wk!gjdwPp! HVF"));
 		
 		
 	}
