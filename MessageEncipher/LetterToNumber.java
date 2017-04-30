@@ -1,4 +1,4 @@
-package LetterToNumberEncipher;
+
 
 /*
  * only works for lower case letters

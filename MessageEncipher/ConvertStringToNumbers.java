@@ -1,4 +1,4 @@
-package LetterToNumberEncipher;
+
 
 public class ConvertStringToNumbers {
 	static LetterToNumber singleChar = new LetterToNumber();

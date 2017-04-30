@@ -1,5 +1,3 @@
-package LetterToNumberEncipher;
-
 public class Iterator {
 	ConvertStringToNumbers n;
 	

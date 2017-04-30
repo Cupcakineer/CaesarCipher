@@ -16,7 +16,7 @@ public class morseEncryptor{
     
     public static String [] morseTable = new String [36];
     
-    public static void populateTable(){
+    public void populateTable(){
         morseTable[0] = ".-";
         morseTable[1] = "-...";
         morseTable[2] = "-.-.";
